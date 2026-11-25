@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>determinar_numero_primo</title>
+</head>
+<body>
+<pre id="salida"></pre>
+<script>
+const salida = document.getElementById("salida");
+const logOriginal = console.log;
+console.log = function (...args) {
+    salida.textContent += args.join(" ") + "\n";
+    logOriginal.apply(console, args);
+};
+</script>
+<script>
+// Desarrolle un algoritmo que permita leer un valor entero positivo N y determinar si
+// es primo o no.
+let num, contador;
+let residuo, contarDivisor;
+console.log('Ingrese un numero entero > 1: ');
+num = parseInt(prompt('Ingrese un numero entero > 1: '));
+contador = 1;
+contarDivisor = 0; // valor inicial
+while (contador <= num) {
+    residuo = num % contador; // 2: condicion (finito)
+    if (residuo === 0) {
+        contarDivisor = contarDivisor + 1;
+    }
+    contador = contador + 1;
+} // 3_ incremento + 1
+if (contarDivisor === 2) {
+    console.log('el numero ingresado es primo');
+} else {
+    console.log('el numero ingresado NO es primo');
+}
+</script>
+</body>
+</html>
